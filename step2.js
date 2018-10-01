@@ -7,18 +7,18 @@ var requestOptions = {
   path: '/http-examples/step2.html'
 };
 
-var buffered = '';
+var chunked = '';
 
 https.get(requestOptions, function (response) {
 
   response.setEncoding('utf8');
 
   response.on('data', function (data) {
-    buffered += data;
+    chunked += data;
   });
 
   response.on('end', function() {
-    console.log(buffered);
+    console.log(chunked);
   });
 
 });
